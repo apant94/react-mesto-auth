@@ -1,0 +1,9 @@
+.popup__definition_delete {
+  margin: 0 0 38px;
+}
+
+@media screen and (min-width: 600px) {
+  .popup__definition_delete {
+    margin: 0 0 38px;
+  }
+}

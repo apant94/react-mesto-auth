@@ -1,0 +1,26 @@
+.popup__create {
+  background-image: url(../../../images/create-button-small.svg);
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-color: transparent;
+  border: none;
+  padding: 0;
+  margin-top: 45px;
+  width: 238px;
+  height: 46px;
+  transition: 0.2s;
+}
+
+@media screen and (min-width: 600px) {
+  .popup__create {
+    background-image: url(../../../images/create-button.svg);
+    margin-top: 48px;
+    width: 358px;
+    height: 50px;
+  }
+}
+
+.popup__create:hover {
+  opacity: 0.8;
+  cursor: pointer;
+}

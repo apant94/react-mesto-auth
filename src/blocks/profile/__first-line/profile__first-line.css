@@ -1,0 +1,11 @@
+.profile__first-line {
+  display: flex;
+  align-items: baseline;
+  margin-left: 28px;
+}
+
+@media screen and (min-width: 768px) {
+  .profile__first-line {
+    margin-left: 0;
+  }
+}
