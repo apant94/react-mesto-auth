@@ -28,6 +28,12 @@
 @import url(./blocks/element/__like/element__like.css);
 @import url(./blocks/element/__counter/element__counter.css);
 @import url(./blocks/element/__like/_active/element__like_active.css);
+@import url(./blocks/form/form.css);
+@import url(./blocks/form/__definition/form__definition.css);
+@import url(./blocks/form/__input/form__input.css);
+@import url(./blocks/form/__submit/form__submit.css);
+@import url(./blocks/form/__question/form__question.css);
+@import url(./blocks/form/__link/form__link.css);
 @import url(./blocks/footer/footer.css);
 @import url(./blocks/footer/__content/footer__content.css);
 @import url(./blocks/popup/popup.css);

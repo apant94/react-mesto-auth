@@ -1,5 +1,8 @@
 import React from "react";
+import { Route, Switch } from "react-router-dom";
 import Header from "./Header.js";
+import Login from "./Login.js";
+import Register from "./Register.js";
 import Main from "./Main.js";
 import Footer from "./Footer.js";
 import EditAvatarPopup from "./EditAvatarPopup.js";
@@ -142,16 +145,22 @@ function App() {
     <CurrentUserContext.Provider value={currentUser} >
     <div className="page">
       <Header />
-      <Main
-        onEditAvatar={handleEditAvatarClick}
-        onEditProfile={handleEditProfileClick}
-        onAddPlace={handleAddPlaceClick}
-        onCardClick={handleCardClick}
-        onDeleteClick={handleDeleteClick}
-        onCardLike={handleCardLike}
-        onCardDelete={handleCardDelete}
-        cards={cards}
-      />
+      <Switch>
+      <Route path="/sign-in"><Login /></Route>
+      <Route path="/sign-up"><Register /></Route>
+      <Route exact path="/">
+        <Main
+          onEditAvatar={handleEditAvatarClick}
+          onEditProfile={handleEditProfileClick}
+          onAddPlace={handleAddPlaceClick}
+          onCardClick={handleCardClick}
+          onDeleteClick={handleDeleteClick}
+          onCardLike={handleCardLike}
+          onCardDelete={handleCardDelete}
+          cards={cards}
+        />
+      </Route>
+      </Switch>
       <Footer />
       <EditAvatarPopup
         isOpen={isEditAvatarPopupOpen}
