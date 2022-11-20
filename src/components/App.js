@@ -39,6 +39,8 @@ function App() {
   // Authorization and registration
   const [loggedIn, setLoggedIn] = useState(false);
 
+  const [headerEmail, setHeaderEmail] = useState("");
+
   useEffect(() => {
     api
       .getCards()
@@ -171,27 +173,42 @@ function App() {
     auth
       .login(email, password)
       .then((res) => {
-        localStorage.setItem("token", res.token);
+        localStorage.setItem("jwt", res.token);
+        console.log(res.token);
         setLoggedIn(true);
         history.push("/");
+        setHeaderEmail(email);
       })
       .catch((err) => {
         console.log(err);
       });
   }
 
-  // useEffect(() => {
-  //   const jwt = localStorage.getItem("jwt");
-  //   if (data.jwt) {
-  //     auth.checkToken(jwt)
-  //     .then((data))
-  //   }
-  // });
+  function handleLogout() {
+    setLoggedIn(false);
+    localStorage.removeItem("jwt");
+  }
+
+  useEffect(() => {
+    const jwt = localStorage.getItem("jwt");
+    if (jwt) {
+      auth
+        .checkToken(jwt)
+        .then((res) => {
+          setLoggedIn(true);
+          history.push("/");
+          setHeaderEmail(res.data.email);
+        })
+        .catch((err) => {
+          console.log(err);
+        });
+    }
+  });
 
   return (
     <CurrentUserContext.Provider value={currentUser}>
       <div className="page">
-        <Header />
+        <Header email={headerEmail} onClick={handleLogout} />
         <Switch>
           <Route path="/sign-in">
             <Login handleLogin={handleLogin} />

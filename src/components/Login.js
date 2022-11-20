@@ -16,7 +16,6 @@ function Login(props) {
     e.preventDefault();
     props.handleLogin(email, password);
   }
-  console.log(password);
 
   return (
     <form className="form" onSubmit={handleSubmit}>
