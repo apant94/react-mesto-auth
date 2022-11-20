@@ -43,7 +43,7 @@ function EditProfilePopup(props) {
         id="name-input"
         type="text"
         name="name"
-        value={name}
+        value={name || ""}
         onChange={handleNameChange}
         className="popup__text popup__text_value_name"
         placeholder="Имя"
@@ -56,7 +56,7 @@ function EditProfilePopup(props) {
         id="job-input"
         type="text"
         name="about"
-        value={description}
+        value={description || ""}
         onChange={handleDescriptionChange}
         className="popup__text popup__text_value_job"
         placeholder="Род деятельности"
