@@ -1,0 +1,6 @@
+.popup__tooltip-icon_error {
+  background-image: url(../../../../images/tooltip-error.png);
+  width: 120px;
+  height: 120px;
+  background-repeat: no-repeat;
+}

@@ -10,6 +10,7 @@ import EditProfilePopup from "./EditProfilePopup.js";
 import AddPlacePopup from "./AddPlacePopup.js";
 import ImagePopup from "./ImagePopup.js";
 import PopupWithForm from "./PopupWithForm.js";
+import InfoTooltip from "./InfoTooltip.js";
 import api from "../utils/api";
 import CurrentUserContext from "../contexts/CurrentUserContext.js";
 import ProtectedRoute from "./ProtectedRoute.js";
@@ -18,23 +19,25 @@ import * as auth from "../utils/auth.js";
 function App() {
   const history = useHistory();
 
-  const [isEditAvatarPopupOpen, setIsEditAvatarPopupOpen] =
-    React.useState(false);
+  const [isEditAvatarPopupOpen, setIsEditAvatarPopupOpen] = useState(false);
 
-  const [isEditProfilePopupOpen, setIsEditProfilePopupOpen] =
-    React.useState(false);
+  const [isEditProfilePopupOpen, setIsEditProfilePopupOpen] = useState(false);
 
-  const [isAddPlacePopupOpen, setIsAddPlacePopupOpen] = React.useState(false);
+  const [isAddPlacePopupOpen, setIsAddPlacePopupOpen] = useState(false);
 
-  const [isImagePopupOpen, setIsImagePopupOpen] = React.useState(false);
+  const [isImagePopupOpen, setIsImagePopupOpen] = useState(false);
 
-  const [isDeletePopupOpen, setIsDeletePopupOpen] = React.useState(false);
+  const [isDeletePopupOpen, setIsDeletePopupOpen] = useState(false);
 
-  const [selectedCard, setSelectedCard] = React.useState({});
+  const [isTooltipOpen, setIsTooltipOpen] = useState(false);
 
-  const [currentUser, setCurrentUser] = React.useState({});
+  const [isAuthOk, setIsAuthOk] = useState(true);
 
-  const [cards, setCards] = React.useState([]);
+  const [selectedCard, setSelectedCard] = useState({});
+
+  const [currentUser, setCurrentUser] = useState({});
+
+  const [cards, setCards] = useState([]);
 
   // Authorization and registration
   const [loggedIn, setLoggedIn] = useState(false);
@@ -90,6 +93,7 @@ function App() {
     setIsAddPlacePopupOpen(false);
     setIsImagePopupOpen(false);
     setIsDeletePopupOpen(false);
+    setIsTooltipOpen(false);
     setSelectedCard({});
   }
 
@@ -162,10 +166,14 @@ function App() {
     auth
       .register(email, password)
       .then(() => {
+        setIsTooltipOpen(true);
+        setIsAuthOk(true);
         history.push("/sign-in");
       })
       .catch((err) => {
         console.log(err);
+        setIsTooltipOpen(true);
+        setIsAuthOk(false);
       });
   }
 
@@ -174,7 +182,6 @@ function App() {
       .login(email, password)
       .then((res) => {
         localStorage.setItem("jwt", res.token);
-        console.log(res.token);
         setLoggedIn(true);
         history.push("/");
         setHeaderEmail(email);
@@ -256,6 +263,11 @@ function App() {
           title="Вы уверены?"
           isOpen={isDeletePopupOpen}
           onClose={closeAllPopups}
+        />
+        <InfoTooltip
+          isOpen={isTooltipOpen}
+          onClose={closeAllPopups}
+          isAuthOk={isAuthOk}
         />
       </div>
     </CurrentUserContext.Provider>

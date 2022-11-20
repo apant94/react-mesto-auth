@@ -1,7 +1,7 @@
 export const BASE_URL = "https://auth.nomoreparties.co";
 
 const header = {
-  "Accept": "application/json",
+  Accept: "application/json",
   "Content-Type": "application/json",
 };
 
@@ -38,7 +38,7 @@ export const checkToken = (token) => {
     method: "GET",
     headers: {
       ...header,
-      "Authorization": `Bearer ${token}`,
+      Authorization: `Bearer ${token}`,
     },
   })
     .then((res) => {

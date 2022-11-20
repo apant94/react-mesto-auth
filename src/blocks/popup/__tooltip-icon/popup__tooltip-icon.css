@@ -1,0 +1,6 @@
+.popup__tooltip-icon {
+  background-image: url(../../../images/tooltip-ok.png);
+  width: 120px;
+  height: 120px;
+  background-repeat: no-repeat;
+}

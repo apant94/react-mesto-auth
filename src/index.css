@@ -58,3 +58,7 @@
 @import url(./blocks/popup/__image-container/popup__image-container.css);
 @import url(./blocks/popup/__image-item/popup__image-item.css);
 @import url(./blocks/popup/__image-name/popup__image-name.css);
+@import url(./blocks/popup/__tooltip-container/popup__tooltip-container.css);
+@import url(./blocks/popup/__tooltip-icon/popup__tooltip-icon.css);
+@import url(./blocks/popup/__tooltip-icon/_error/popup__tooltip-icon_error.css);
+@import url(./blocks/popup/__tooltip-text/popup__tooltip-text.css);
