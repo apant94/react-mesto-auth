@@ -20,7 +20,7 @@ function PopupWithForm(props) {
         <div className="popup__wrapper">
           <h2 className="popup__definition">{props.title}</h2>
           {props.children}
-          <button type="submit" className="popup__submit">
+          <button type="submit" className={`popup__submit ${!props.isValid ? "popup__submit_inactive" : ""}`}>
             Сохранить
           </button>
         </div>
