@@ -1,0 +1,9 @@
+// Imports
+import ___CSS_LOADER_API_SOURCEMAP_IMPORT___ from "../../../../../node_modules/css-loader/dist/runtime/sourceMaps.js";
+import ___CSS_LOADER_API_IMPORT___ from "../../../../../node_modules/css-loader/dist/runtime/api.js";
+var ___CSS_LOADER_EXPORT___ = ___CSS_LOADER_API_IMPORT___(___CSS_LOADER_API_SOURCEMAP_IMPORT___);
+// Module
+___CSS_LOADER_EXPORT___.push([module.id, ".popup__submit_delete {\r\n  margin-top: 0;\r\n  }\r\n  \r\n  @media screen and (min-width: 600px) {\r\n    .popup__submit_delete {\r\n      margin-top: 0;\r\n    }\r\n  }", "",{"version":3,"sources":["webpack://./src/blocks/popup/__submit/_delete/popup__submit_delete"],"names":[],"mappings":"AAAA;EACE,aAAa;EACb;;EAEA;IACE;MACE,aAAa;IACf;EACF","sourcesContent":[".popup__submit_delete {\r\n  margin-top: 0;\r\n  }\r\n  \r\n  @media screen and (min-width: 600px) {\r\n    .popup__submit_delete {\r\n      margin-top: 0;\r\n    }\r\n  }"],"sourceRoot":""}]);
+// Exports
+___CSS_LOADER_EXPORT___.locals = {};
+export default ___CSS_LOADER_EXPORT___;
